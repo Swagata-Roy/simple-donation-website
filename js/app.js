@@ -37,7 +37,12 @@ let totalBalance = 100000;
 
 // Common Functions
 function formatAmount(amount) {
-    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // Convert to number and check if it's valid
+    const number = Number(amount);
+    if (isNaN(number)) return '0';
+    
+    // Using toLocaleString for easy number formatting
+    return number.toLocaleString('en-US');
 }
 
 function updateBalance(amount) {
@@ -49,38 +54,42 @@ function updateBalance(amount) {
 donationBtn.addEventListener('click', () => {
     donationSection.classList.remove('hidden');
     historySection.classList.add('hidden');
-    donationBtn.classList.add('mainColor');
-    historyBtn.classList.remove('mainColor');
+    donationBtn.classList.add('bg-mainButtonColor');
+    historyBtn.classList.remove('bg-mainButtonColor');
+    donationBtn.classList.add('hover:bg-mainButtonColor80');
+    historyBtn.classList.remove('hover:bg-mainButtonColor80');
 });
 
 historyBtn.addEventListener('click', () => {
     donationSection.classList.add('hidden');
     historySection.classList.remove('hidden');
-    historyBtn.classList.add('mainColor');
-    donationBtn.classList.remove('mainColor');
+    historyBtn.classList.add('bg-mainButtonColor');
+    donationBtn.classList.remove('bg-mainButtonColor');
+    historyBtn.classList.add('hover:bg-mainButtonColor80');
+    donationBtn.classList.remove('hover:bg-mainButtonColor80');
 });
 
 // Create Donation Cards
 function createDonationCards() {
     donationData.forEach(donation => {
         const card = document.createElement('div');
-        card.className = 'card lg:card-side bg-base-100 shadow-xl';
+        card.className = 'shadow-xl card lg:card-side bg-base-100';
         card.innerHTML = `
             <figure class="lg:w-1/3">
-                <img src="${donation.image}" alt="${donation.title}" class="h-full w-full object-cover"/>
+                <img src="${donation.image}" alt="${donation.title}" class="object-cover w-full h-full"/>
             </figure>
             <div class="card-body lg:w-2/3">
-                <div class="flex items-center gap-2 mb-2">
+                <div class="flex gap-2 items-center mb-2">
                     <img src="img/coin.png" alt="coin" class="h-6">
                     <span class="font-bold">${donation.currentAmount} BDT</span>
                 </div>
                 <h2 class="card-title">${donation.title}</h2>
                 <p>${donation.description}</p>
                 <div class="form-control">
-                    <input type="number" placeholder="Write Donation Amount" class="input input-bordered w-full" />
+                    <input type="number" placeholder="Write Donation Amount" class="w-full input input-bordered" />
                 </div>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-success btn-block text-white" onclick="handleDonation(${donation.id}, this)">
+                <div class="justify-end card-actions">
+                    <button class="text-white btn btn-success btn-block" onclick="handleDonation(${donation.id}, this)">
                         Donate Now
                     </button>
                 </div>
@@ -139,7 +148,7 @@ function addToHistory(title, amount) {
     });
 
     const historyItem = document.createElement('div');
-    historyItem.className = 'bg-base-100 p-4 rounded-lg shadow';
+    historyItem.className = 'p-4 rounded-lg shadow bg-base-100';
     historyItem.innerHTML = `
         <p class="text-sm text-gray-500">Date: ${date}</p>
         <p class="font-bold">${amount} Taka is Donated for ${title}</p>

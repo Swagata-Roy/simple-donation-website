@@ -14,8 +14,8 @@
             theme: {
                 extend: {
                     colors: {
-                        mainColor: '#ABEF5F',
-                        mainColor80: '#ABEF5F80',
+                        mainButtonColor: '#ABEF5F',
+                        mainButtonColor80: '#ABEF5F80',
                     },
                 }
             }
@@ -24,18 +24,18 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar bg-base-100 fixed top-0 z-50 shadow-md">
+    <nav class="fixed top-0 z-50 shadow-md navbar bg-base-100">
         <div class="navbar-start">
-            <a href="blog.html" class="btn btn-success text-white">Blog</a>
+            <a href="blog.html" class="text-white btn btn-success">Blog</a>
         </div>
         <div class="navbar-center">
-            <div class="flex items-center gap-2">
+            <div class="flex gap-2 items-center">
                 <img src="img/logo.png" alt="Donate Bangladesh" class="h-12">
                 <span class="text-xl font-bold">Donate Bangladesh</span>
             </div>
         </div>
         <div class="navbar-end">
-            <div class="flex items-center gap-2">
+            <div class="flex gap-2 items-center">
                 <img src="img/coin.png" alt="coin" class="h-6">
                 <span id="total-balance" class="font-bold">100000 BDT</span>
             </div>
@@ -43,13 +43,13 @@
     </nav>
 
     <!-- Navigation Buttons -->
-    <div class="flex justify-center gap-4 mt-24 mb-8">
-        <button id="donation-btn" class="btn btn-outline mainColor">Donation</button>
-        <button id="history-btn" class="btn btn-outline">History</button>
+    <div class="flex gap-4 justify-center mt-24 mb-8">
+        <button id="donation-btn" class="btn bg-mainButtonColor hover:bg-mainButtonColor80">Donation</button>
+        <button id="history-btn" class="btn">History</button>
     </div>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4">
+    <main class="container px-4 mx-auto">
         <!-- Donation Section -->
         <section id="donation-section" class="grid grid-cols-1 gap-8">
             <!-- Donation cards will be dynamically added here -->
@@ -65,14 +65,14 @@
 
     <!-- Success Modal -->
     <dialog id="success-modal" class="modal">
-        <div class="modal-box text-center">
-            <h3 class="font-bold text-2xl mb-4">Congrates!</h3>
+        <div class="text-center modal-box">
+            <h3 class="mb-4 text-2xl font-bold">Congrates!</h3>
             <div class="flex justify-center mb-4">
                 <img src="img/coin.png" alt="coin" class="h-12">
             </div>
             <p class="py-4">You Have Donated for Humankind</p>
-            <p class="font-bold mb-4">Successfully</p>
-            <div class="modal-action justify-center">
+            <p class="mb-4 font-bold">Successfully</p>
+            <div class="justify-center modal-action">
                 <button class="btn" onclick="closeModal()">close confirmation</button>
             </div>
         </div>
