@@ -86,7 +86,7 @@ function createDonationCards() {
                 <h2 class="card-title">${donation.title}</h2>
                 <p>${donation.description}</p>
                 <div class="form-control">
-                    <input type="number" placeholder="Write Donation Amount" class="w-full input input-bordered" />
+                    <input type="text" placeholder="Write Donation Amount" class="w-full input input-bordered" />
                 </div>
                 <div class="justify-end card-actions">
                     <button class="text-white btn bg-mainButtonColor hover:bg-mainButtonColor80 btn-block" onclick="handleDonation(${donation.id}, this)">
