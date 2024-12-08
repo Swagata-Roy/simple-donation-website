@@ -7,155 +7,120 @@
     <!-- DaisyUI and Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainButtonColor: '#ABEF5F',
+                        mainButtonColor80: '#ABEF5F80',
+                    },
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar bg-base-100 shadow-md">
+     <section class="fixed top-0 z-50 w-full h-24 backdrop-blur">
+    <nav class="navbar">
         <div class="navbar-start">
-            <a href="index.html" class="btn btn-success text-white">Home</a>
+            <a href="index.html" class="btn bg-mainButtonColor hover:bg-mainButtonColor80">Home</a>
         </div>
         <div class="navbar-center">
-            <div class="flex items-center gap-2">
+            <div class="flex flex-col gap-2 items-center sm:flex-row">
                 <img src="img/logo.png" alt="Donate Bangladesh" class="h-12">
-                <span class="text-xl font-bold">Donate Bangladesh</span>
+                <span class="text-sm font-bold md:text-lg">Donate Bangladesh</span>
             </div>
         </div>
         <div class="navbar-end">
-            <div class="flex items-center gap-2">
+            <div class="flex flex-col gap-2 items-center sm:flex-row">
                 <img src="img/coin.png" alt="coin" class="h-6">
-                <span id="total-balance" class="font-bold">100000 BDT</span>
+                <span id="total-balance" class="text-xs font-bold sm:text-sm md:text-lg">100000 BDT</span>
             </div>
         </div>
     </nav>
+</section>
+    <!-- Top Section -->
+ <section class="mb-8 h-20 bg-orange-100">
+</section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-center mb-8">DOM Questions & Answers</h1>
+    <main class="container px-4 py-8 mx-auto mt-24">
+        <h1 class="mb-8 text-xl font-bold text-center md:text-3xl">DOM Questions & Answers</h1>
         
-        <div class="join join-vertical w-full">
+        <div class="w-full join join-vertical">
             <!-- Question 1 -->
-            <div class="collapse collapse-arrow join-item border border-base-300">
+            <div class="border collapse collapse-arrow join-item border-base-300">
                 <input type="radio" name="my-accordion-4" checked="checked" /> 
-                <div class="collapse-title text-xl font-medium">
+                <div class="text-sm font-medium collapse-title md:text-xl">
                     What is the Document Object Model (DOM)?
                 </div>
-                <div class="collapse-content">
-                    <p>The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as a tree-like hierarchy of objects where each object corresponds to a part of the page.</p>
-                    <br>
-                    <p>Key aspects of the DOM:</p>
-                    <ul class="list-disc list-inside">
-                        <li>It creates a tree-like structure of HTML elements</li>
-                        <li>Allows JavaScript to dynamically access and modify web page content</li>
-                        <li>Provides methods and properties to interact with HTML elements</li>
-                        <li>Makes web pages interactive and dynamic</li>
+                <div class="text-sm collapse-content md:text-base">
+                    <p>The Document Object Model (DOM) is a programming interface that represents web pages as a tree structure. It allows JavaScript to:</p>
+                    <ul class="mt-2 list-disc list-inside">
+                        <li>Access and change page elements</li>
+                        <li>Modify content and styles</li>
+                        <li>React to user interactions</li>
+                        <li>Create dynamic web experiences</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Question 2 -->
-            <div class="collapse collapse-arrow join-item border border-base-300">
+            <div class="border collapse collapse-arrow join-item border-base-300">
                 <input type="radio" name="my-accordion-4" /> 
-                <div class="collapse-title text-xl font-medium">
+                <div class="text-sm font-medium collapse-title md:text-xl">
                     How do you select an element from the DOM?
                 </div>
-                <div class="collapse-content">
-                    <p>There are several methods to select elements from the DOM:</p>
-                    <br>
-                    <ol class="list-decimal list-inside space-y-2">
-                        <li><strong>getElementById():</strong> Selects an element by its ID attribute</li>
-                        <li><strong>getElementsByClassName():</strong> Selects elements by their class name</li>
-                        <li><strong>getElementsByTagName():</strong> Selects elements by their tag name</li>
-                        <li><strong>querySelector():</strong> Selects the first element that matches a CSS selector</li>
-                        <li><strong>querySelectorAll():</strong> Selects all elements that match a CSS selector</li>
-                    </ol>
-                    <br>
-                    <p>Example:</p>
-                    <pre class="bg-gray-100 p-2 rounded">
-// By ID
-const element = document.getElementById('myId');
-
-// By Class
-const elements = document.getElementsByClassName('myClass');
-
-// By CSS Selector
-const element = document.querySelector('.myClass #myId');</pre>
+                <div class="text-sm collapse-content md:text-base">
+                    <p>Common methods to select DOM elements:</p>
+                    <ul class="mt-2 list-disc list-inside">
+                        <li>getElementById('id') - finds by ID</li>
+                        <li>getElementsByClassName('class') - finds by class</li>
+                        <li>querySelector('.class') - uses CSS selectors</li>
+                        <li>querySelectorAll('div') - finds all matching elements</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- Question 3 -->
-            <div class="collapse collapse-arrow join-item border border-base-300">
+            <div class="border collapse collapse-arrow join-item border-base-300">
                 <input type="radio" name="my-accordion-4" /> 
-                <div class="collapse-title text-xl font-medium">
+                <div class="text-sm font-medium collapse-title md:text-xl">
                     What is event delegation in the context of the DOM, and why is it useful?
                 </div>
-                <div class="collapse-content">
-                    <p>Event delegation is a technique where you attach a single event listener to a parent element instead of attaching multiple listeners to individual child elements. This technique leverages the event bubbling mechanism of the DOM.</p>
-                    <br>
-                    <p><strong>Benefits of Event Delegation:</strong></p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Improves memory efficiency by reducing the number of event listeners</li>
-                        <li>Works with dynamically added elements</li>
-                        <li>Reduces code complexity</li>
-                        <li>Better performance in handling multiple similar events</li>
+                <div class="text-sm collapse-content md:text-base">
+                    <p>Event delegation is a technique where you handle events on a parent element instead of individual child elements. Benefits:</p>
+                    <ul class="mt-2 list-disc list-inside">
+                        <li>Better memory usage</li>
+                        <li>Works with dynamic elements</li>
+                        <li>Less code needed</li>
+                        <li>Easier maintenance</li>
                     </ul>
-                    <br>
-                    <p>Example:</p>
-                    <pre class="bg-gray-100 p-2 rounded">
-// Instead of this:
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-    button.addEventListener('click', handleClick);
-});
-
-// Use this:
-document.querySelector('.button-container')
-    .addEventListener('click', (e) => {
-        if (e.target.matches('button')) {
-            handleClick(e);
-        }
-    });</pre>
                 </div>
             </div>
 
             <!-- Question 4 -->
-            <div class="collapse collapse-arrow join-item border border-base-300">
+            <div class="border collapse collapse-arrow join-item border-base-300">
                 <input type="radio" name="my-accordion-4" /> 
-                <div class="collapse-title text-xl font-medium">
-                    How do you manipulate an element's attributes and styles using the DOM?
+                <div class="text-sm font-medium collapse-title md:text-xl">
+                    How do you manipulate element attributes and styles using the DOM?
                 </div>
-                <div class="collapse-content">
-                    <p>The DOM provides several ways to manipulate element attributes and styles:</p>
-                    <br>
-                    <p><strong>Attribute Manipulation:</strong></p>
-                    <pre class="bg-gray-100 p-2 rounded">
-// Get attribute
-element.getAttribute('class');
-
-// Set attribute
-element.setAttribute('class', 'new-class');
-
-// Remove attribute
-element.removeAttribute('class');
-
-// Check if attribute exists
-element.hasAttribute('class');</pre>
-                    <br>
-                    <p><strong>Style Manipulation:</strong></p>
-                    <pre class="bg-gray-100 p-2 rounded">
-// Using style property
-element.style.backgroundColor = 'red';
-element.style.fontSize = '16px';
-
-// Using classList
-element.classList.add('new-class');
-element.classList.remove('old-class');
-element.classList.toggle('active');
-
-// Using className
-element.className = 'new-class';</pre>
+                <div class="text-sm collapse-content md:text-base">
+                    <p>Elements can be manipulated in several ways using the DOM:</p>
+                    <ul class="mt-2 list-disc list-inside">
+                        <li>element.setAttribute('class', 'new-class')</li>
+                        <li>element.style.color = 'red'</li>
+                        <li>element.classList.add('active')</li>
+                        <li>element.textContent = 'New text'</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </main>
+
 </body>
 </html>

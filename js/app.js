@@ -89,7 +89,7 @@ function createDonationCards() {
                     <input type="number" placeholder="Write Donation Amount" class="w-full input input-bordered" />
                 </div>
                 <div class="justify-end card-actions">
-                    <button class="text-white btn btn-success btn-block" onclick="handleDonation(${donation.id}, this)">
+                    <button class="text-white btn bg-mainButtonColor hover:bg-mainButtonColor80 btn-block" onclick="handleDonation(${donation.id}, this)">
                         Donate Now
                     </button>
                 </div>
@@ -136,22 +136,14 @@ function handleDonation(id, button) {
 
 // Add to History
 function addToHistory(title, amount) {
-    const date = new Date().toLocaleString('en-US', { 
-        timeZone: 'Asia/Dhaka',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    });
+    const date = new Date();
+    const dateString = `Date: ${date.toDateString()} ${date.toTimeString()}`;
 
     const historyItem = document.createElement('div');
     historyItem.className = 'p-4 rounded-lg shadow bg-base-100';
     historyItem.innerHTML = `
-        <p class="text-sm text-gray-500">Date: ${date}</p>
         <p class="font-bold">${amount} Taka is Donated for ${title}</p>
+        <p class="text-sm text-gray-500">${dateString}</p>
     `;
     historyContainer.insertBefore(historyItem, historyContainer.firstChild);
 }

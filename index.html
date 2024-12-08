@@ -24,41 +24,46 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="fixed top-0 z-50 shadow-md navbar bg-base-100">
+     <section class="fixed top-0 z-50 w-full backdrop-blur">
+    <nav class="navbar">
         <div class="navbar-start">
-            <a href="blog.html" class="text-white btn btn-success">Blog</a>
+            <a href="blog.html" class="btn bg-mainButtonColor hover:bg-mainButtonColor80">Blog</a>
         </div>
         <div class="navbar-center">
-            <div class="flex gap-2 items-center">
+            <div class="flex flex-col gap-2 items-center sm:flex-row">
                 <img src="img/logo.png" alt="Donate Bangladesh" class="h-12">
-                <span class="text-xl font-bold">Donate Bangladesh</span>
+                <span class="text-sm font-bold md:text-lg">Donate Bangladesh</span>
             </div>
         </div>
         <div class="navbar-end">
-            <div class="flex gap-2 items-center">
+            <div class="flex flex-col gap-2 items-center sm:flex-row">
                 <img src="img/coin.png" alt="coin" class="h-6">
-                <span id="total-balance" class="font-bold">100000 BDT</span>
+                <span id="total-balance" class="text-xs font-bold sm:text-sm md:text-lg">100000 BDT</span>
             </div>
         </div>
     </nav>
 
     <!-- Navigation Buttons -->
-    <div class="flex gap-4 justify-center mt-24 mb-8">
+    <div class="flex gap-4 justify-center mt-12 mb-4">
         <button id="donation-btn" class="btn bg-mainButtonColor hover:bg-mainButtonColor80">Donation</button>
         <button id="history-btn" class="btn">History</button>
     </div>
+</section>
 
+<!-- Top Section -->
+ <section class="mb-36 h-20 bg-orange-100">
+ </section>
+ 
     <!-- Main Content -->
+
     <main class="container px-4 mx-auto">
         <!-- Donation Section -->
-        <section id="donation-section" class="grid grid-cols-1 gap-8">
-            <!-- Donation cards will be dynamically added here -->
+        <section id="donation-section" class="grid grid-cols-1 gap-8 mb-8">
         </section>
 
         <!-- History Section -->
         <section id="history-section" class="hidden">
             <div id="history-container" class="space-y-4">
-                <!-- History items will be dynamically added here -->
             </div>
         </section>
     </main>
