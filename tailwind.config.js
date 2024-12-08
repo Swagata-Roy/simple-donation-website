@@ -6,7 +6,12 @@ module.exports = {
   
     theme: {
   
-      extend: {},
+      extend: {
+        colors: {
+            mainColor: '#ABEF5F',
+            mainColor80: '#ABEF5F80',
+        },
+      },
   
     },
   

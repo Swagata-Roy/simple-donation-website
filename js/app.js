@@ -49,15 +49,15 @@ function updateBalance(amount) {
 donationBtn.addEventListener('click', () => {
     donationSection.classList.remove('hidden');
     historySection.classList.add('hidden');
-    donationBtn.classList.add('active-btn');
-    historyBtn.classList.remove('active-btn');
+    donationBtn.classList.add('mainColor');
+    historyBtn.classList.remove('mainColor');
 });
 
 historyBtn.addEventListener('click', () => {
     donationSection.classList.add('hidden');
     historySection.classList.remove('hidden');
-    historyBtn.classList.add('active-btn');
-    donationBtn.classList.remove('active-btn');
+    historyBtn.classList.add('mainColor');
+    donationBtn.classList.remove('mainColor');
 });
 
 // Create Donation Cards
@@ -80,7 +80,7 @@ function createDonationCards() {
                     <input type="number" placeholder="Write Donation Amount" class="input input-bordered w-full" />
                 </div>
                 <div class="card-actions justify-end">
-                    <button class="btn btn-success text-white" onclick="handleDonation(${donation.id}, this)">
+                    <button class="btn btn-success btn-block text-white" onclick="handleDonation(${donation.id}, this)">
                         Donate Now
                     </button>
                 </div>
@@ -97,7 +97,7 @@ function handleDonation(id, button) {
     const amount = parseInt(input.value);
 
     // Validation
-    if (!amount || isNaN(amount)) {
+    if (!amount || isNaN(amount) || amount <= 0) {
         alert('Please enter a valid donation amount');
         return;
     }

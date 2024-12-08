@@ -7,13 +7,20 @@
     <!-- DaisyUI and Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom CSS -->
-    <style>
-        .active-btn {
-            background-color: #82CD47 !important;
-            color: white !important;
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainColor: '#ABEF5F',
+                        mainColor80: '#ABEF5F80',
+                    },
+                }
+            }
         }
-    </style>
+    </script>
 </head>
 <body>
     <!-- Navbar -->
@@ -37,7 +44,7 @@
 
     <!-- Navigation Buttons -->
     <div class="flex justify-center gap-4 mt-24 mb-8">
-        <button id="donation-btn" class="btn btn-outline active-btn">Donation</button>
+        <button id="donation-btn" class="btn btn-outline mainColor">Donation</button>
         <button id="history-btn" class="btn btn-outline">History</button>
     </div>
 
