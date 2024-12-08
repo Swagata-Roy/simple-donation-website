@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Bangladesh</title>
+    <!-- DaisyUI and Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <style>
+        .active-btn {
+            background-color: #82CD47 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar bg-base-100 fixed top-0 z-50 shadow-md">
+        <div class="navbar-start">
+            <a href="blog.html" class="btn btn-success text-white">Blog</a>
+        </div>
+        <div class="navbar-center">
+            <div class="flex items-center gap-2">
+                <img src="img/logo.png" alt="Donate Bangladesh" class="h-12">
+                <span class="text-xl font-bold">Donate Bangladesh</span>
+            </div>
+        </div>
+        <div class="navbar-end">
+            <div class="flex items-center gap-2">
+                <img src="img/coin.png" alt="coin" class="h-6">
+                <span id="total-balance" class="font-bold">100000 BDT</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-center gap-4 mt-24 mb-8">
+        <button id="donation-btn" class="btn btn-outline active-btn">Donation</button>
+        <button id="history-btn" class="btn btn-outline">History</button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4">
+        <!-- Donation Section -->
+        <section id="donation-section" class="grid grid-cols-1 gap-8">
+            <!-- Donation cards will be dynamically added here -->
+        </section>
+
+        <!-- History Section -->
+        <section id="history-section" class="hidden">
+            <div id="history-container" class="space-y-4">
+                <!-- History items will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <dialog id="success-modal" class="modal">
+        <div class="modal-box text-center">
+            <h3 class="font-bold text-2xl mb-4">Congrates!</h3>
+            <div class="flex justify-center mb-4">
+                <img src="img/coin.png" alt="coin" class="h-12">
+            </div>
+            <p class="py-4">You Have Donated for Humankind</p>
+            <p class="font-bold mb-4">Successfully</p>
+            <div class="modal-action justify-center">
+                <button class="btn" onclick="closeModal()">close confirmation</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
